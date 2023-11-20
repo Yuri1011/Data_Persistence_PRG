@@ -12,12 +12,15 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public Text NameText;
+    public Text BestScoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
     private int m_Points;
     private string _namePlayer;
-    
+    private string _bestName;
+    private int _bestPoints;
+
     private bool m_GameOver = false;
 
     
@@ -26,6 +29,10 @@ public class MainManager : MonoBehaviour
     {
         NameText.text = MenuManager.AssignName();
         _namePlayer = NameText.text;
+        _bestName = ManagerData.Upload().name;
+        _bestPoints = ManagerData.Upload().points;
+        BestScoreText.text = "Best Score: "+ _bestName +" : "+ _bestPoints;
+        
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
