@@ -1,28 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    TMP_InputField inputName;
-    public static string namePlayer;
-
+    public static TMP_InputField InputName;
+    private static string _namePlayer;
+    public static MenuManager instance;
     void Start()
     {
-        inputName = GameObject.Find("InputName").GetComponent<TMP_InputField>();
+        InputName = GameObject.Find("InputName").GetComponent<TMP_InputField>();
     }
     public void UploadScene()
     {
         SceneManager.LoadScene(1);
-        if (inputName.text != "")
+        AssignName();
+    }
+
+    public static string AssignName()
+    {
+        if (InputName.text != "")
         {
-            namePlayer = inputName.text;
+            _namePlayer = InputName.text;
         }
         else
         {
-            namePlayer = "Player";
+            _namePlayer = "Player";
         }
+
+        return _namePlayer;
     }
 }
