@@ -10,7 +10,6 @@ public class MenuManager : MonoBehaviour
 {
     public static TMP_InputField InputName;
     private static string _namePlayer;
-    public static MenuManager instance;
     void Start()
     {
         InputName = GameObject.Find("InputName").GetComponent<TMP_InputField>();

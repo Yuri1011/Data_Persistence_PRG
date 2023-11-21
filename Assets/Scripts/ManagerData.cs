@@ -18,6 +18,7 @@ public class ManagerData : MonoBehaviour
             string json = JsonUtility.ToJson(newData);
             File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
         }
+
     }
 
     [Serializable]
